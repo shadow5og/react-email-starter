@@ -73,13 +73,13 @@ const defaulltFooterLinks: BMWUserEmailProps["footerLinks"] = [
     },
   ],
   defaultCTA: BMWUserEmailProps["CTA"] = {
-    name: "Check it out",
+    name: "Get it now",
     href: "https://www.bmw.co.za/en/all-models/bmw-i/i7/showroom/bmw-i7-sedan-highlights.html",
   };
 
 export const BMWInviteUserEmail = ({
   CTA = defaultCTA,
-  heading = "The new BMW i7 Protection.",
+  heading = "THE NEW BMW i7.",
   footerLinks = defaulltFooterLinks,
   socialMediaLinks = defaultSocialMediaLinks,
 }: BMWUserEmailProps) => {
@@ -116,22 +116,24 @@ export const BMWInviteUserEmail = ({
           />
         </Head>
         <Body className="bg-white my-auto mx-auto font-[BMWTypeNextProTT-Regular]">
-          <Container className="border border-solid border-[#eaeaea] rounded my-[40px] mx-auto w-[465px] md:w-[700px] flex flex-col items-stretch">
+          <Container className="border border-solid border-[#eaeaea] max-w-full rounded my-[40px] mx-auto w-full md:w-[700px] flex flex-col items-stretch">
             <Section className="w-full">
               <Img
                 className="w-full object-cover object-center"
-                src={`${baseUrl}/static/img/bmw-i7-protection.jpg`}
+                src={`${baseUrl}/static/img/BMW_i7_Protection.png`}
                 alt="BMW i7 Protection"
               />
             </Section>
-            <Container className="pt-[73px] md:px-12 px-9 w-full pb-[79px]">
-              <Heading className="text-black text-3xl font-thin font-[BMWTypeNextProTT-Light] mt-0 p-0 mb-[30px] mx-0">
+            <Container className="pt-[73px] md:px-12 px-9 w-full pb-[79px] max-w-full">
+              <Heading className="text-[#262626] text-3xl font-thin font-[BMWTypeNextProTT-Light] mt-0 p-0 mb-[30px] mx-0">
                 {heading}
               </Heading>
 
-              <Text className="uppercase font-thin">Dear MR Smith,</Text>
+              <Text className="uppercase text-base font-thin">
+                Dear MR Smith,
+              </Text>
 
-              <Text className="text-black text-[14px] leading-[24px]">
+              <Text className="text-[#262626] text-[14px] text-base leading-[24px]">
                 Unleash Elegance and Security with the BMW i7 Protection – Yours
                 for the Taking at R 1,000,000. Elevate Your Drive with Unrivaled
                 Luxury and Cutting-Edge Safety. Click through to Discover the
@@ -139,26 +141,26 @@ export const BMWInviteUserEmail = ({
               </Text>
               <Section className="mt-[32px] mb-[32px]">
                 <Button
-                  className="bg-black rounded w-[290px] justify-center inline-flex items-center h-12 text-white font-semibold no-underline text-center"
+                  className="bg-[#1c69d4] rounded w-full sm:w-[290px] justify-center inline-flex items-center h-12 text-white font-semibold no-underline text-center"
                   href={CTA.href}
                 >
                   {CTA.name}
                 </Button>
               </Section>
-              <Text className="text-black text-[14px] leading-[24px]">
-                or copy and paste this URL into your browser:{" "}
-                <Link href={CTA.href} className="text-blue-600 no-underline">
+              <Text className="text-[#262626] text-base leading-[24px]">
+                Or copy and paste this URL into your browser:{" "}
+                <Link href={CTA.href} className="text-[#1c69d4] no-underline">
                   {CTA.href}
                 </Link>
               </Text>
             </Container>
-            <Container className="pb-9 pt-16 md:px-12 px-9 bg-[#e6e6e6] w-full">
-              <Text className="flex items-center mt-0 mb-14 flex-wrap justify-around">
+            <Container className="pb-9 pt-16 md:px-12 px-9 bg-[#e6e6e6] w-full max-w-full">
+              <Text className="flex items-center mt-0 mb-14 flex-wrap justify-start md:justify-around">
                 {footerLinks?.map(({ name, href }, index) => (
                   <Link
                     key={index}
                     href={href}
-                    className="text-black no-underline w-fit font-[BMWTypeNextProTT-Bold] inline-flex items-center md:justify-center justify-start"
+                    className="text-[#262626] no-underline md:w-fit w-full font-[BMWTypeNextProTT-Bold] inline-flex items-center md:justify-center"
                   >
                     <Img
                       className="object-cover object-center h-6 mr-2"
@@ -170,10 +172,10 @@ export const BMWInviteUserEmail = ({
                 ))}
               </Text>
               <Row className="flex flex-col items-start md:center">
-                <Text className="uppercase md:full md:text-center mt-0 mb-[30px] font-[BMWTypeNextProTT-Light]">
+                <Text className="uppercase text-[#262626] text-base md:full md:text-center mt-0 mb-[30px] font-[BMWTypeNextProTT-Light]">
                   Follow us
                 </Text>
-                <Text className="mt-0 mb-[52px] justify-center flex items-center">
+                <Text className="mt-0 mb-[52px] md:justify-center flex items-center">
                   {socialMediaLinks?.map(({ name, src, href }, index) => (
                     <Link href={href} key={index} className="mr-2">
                       <Img
@@ -186,7 +188,7 @@ export const BMWInviteUserEmail = ({
                 </Text>
               </Row>
               <Row>
-                <Text className="mb-14 mt-0 text-xs">
+                <Text className="mb-14 mt-0 text-xs text-[#8e8e8e]">
                   Duis mollis, est non commodo luctus, nisi erat porttitor
                   ligula, eget lacinia odio sem nec elit. Duis mollis, est non
                   commodo luctus, nisi erat porttitor ligula, eget lacinia odio
@@ -200,7 +202,9 @@ export const BMWInviteUserEmail = ({
                   Nullam quis risus eget urna mollis ornare vel eu leo. Cras
                   justo odio, dapibus ac facilisis in, egestas eget quam. <br />{" "}
                 </Text>
-                <Text className="text-xs text-center">© BMW AG 2021</Text>
+                <Text className="text-xs text-[#8e8e8e] text-center">
+                  © BMW AG 2021
+                </Text>
               </Row>
             </Container>
           </Container>
