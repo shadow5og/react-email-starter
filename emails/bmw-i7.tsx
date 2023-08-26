@@ -22,30 +22,67 @@ interface ILink {
   name: string;
   href: string;
 }
-interface BMWInviteUserEmailProps {
+
+interface SocialLink extends ILink {
+  src: string;
+}
+
+interface BMWUserEmailProps {
   username?: string;
   userImage?: string;
   CTA?: ILink;
   heading: string;
   footerLinks?: ILink[];
+  socialMediaLinks?: SocialLink[];
 }
 
 const baseUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : "";
 
-export const BMWInviteUserEmail = ({
-  CTA = {
-    name: "Check it out",
-    href: "https://www.bmw.co.za/en/all-models/bmw-i/i7/showroom/bmw-i7-sedan-highlights.html",
-  },
-  heading = "The new BMW i7 Protection.",
-  footerLinks = [
+const defaulltFooterLinks: BMWUserEmailProps["footerLinks"] = [
     { name: "Data privacy", href: "#" },
     { name: "E-Mail unsubscribe", href: "#" },
     { name: "Lorem", href: "#" },
   ],
-}: BMWInviteUserEmailProps) => {
+  defaultSocialMediaLinks: BMWUserEmailProps["socialMediaLinks"] = [
+    {
+      name: "Youtube",
+      href: "https://www.youtube.com/user/BMWSouthAfrica",
+      src: `${baseUrl}/static/icon/social-yt-light.png`,
+    },
+    {
+      name: "Twitter",
+      href: "https://twitter.com/BMW_SA",
+      src: `${baseUrl}/static/icon/social-twitter-light.png`,
+    },
+    {
+      name: "Facebook",
+      href: "https://www.facebook.com/BMWSA",
+      src: `${baseUrl}/static/icon/social-facebook-light.png`,
+    },
+    {
+      name: "LinkedIn",
+      href: "https://www.linkedin.com/company/bmwsouthafrica",
+      src: `${baseUrl}/static/icon/social-linkedin-light.png`,
+    },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/bmwsouthafrica/",
+      src: `${baseUrl}/static/icon/social-instagram-light.png`,
+    },
+  ],
+  defaultCTA: BMWUserEmailProps["CTA"] = {
+    name: "Check it out",
+    href: "https://www.bmw.co.za/en/all-models/bmw-i/i7/showroom/bmw-i7-sedan-highlights.html",
+  };
+
+export const BMWInviteUserEmail = ({
+  CTA = defaultCTA,
+  heading = "The new BMW i7 Protection.",
+  footerLinks = defaulltFooterLinks,
+  socialMediaLinks = defaultSocialMediaLinks,
+}: BMWUserEmailProps) => {
   return (
     <Tailwind>
       <Html>
@@ -54,7 +91,7 @@ export const BMWInviteUserEmail = ({
             fontFamily="BMWTypeNextProTT-Regular"
             fallbackFontFamily="Arial"
             webFont={{
-              url: `${baseUrl}/static/fonts/pro_ttf/BMWTypeNextProTT-Regular.ttf`,
+              url: `${baseUrl}/static/font/pro_ttf/BMWTypeNextProTT-Regular.ttf`,
               format: "truetype",
             }}
             fontStyle="normal"
@@ -63,7 +100,7 @@ export const BMWInviteUserEmail = ({
             fontFamily="BMWTypeNextProTT-Light"
             fallbackFontFamily="Arial"
             webFont={{
-              url: `${baseUrl}/static/fonts/pro_ttf/BMWTypeNextProTT-Light.ttf`,
+              url: `${baseUrl}/static/font/pro_ttf/BMWTypeNextProTT-Light.ttf`,
               format: "truetype",
             }}
             fontStyle="light"
@@ -72,19 +109,18 @@ export const BMWInviteUserEmail = ({
             fontFamily="BMWTypeNextProTT-Bold"
             fallbackFontFamily="Arial"
             webFont={{
-              url: `${baseUrl}/static/fonts/pro_ttf/BMWTypeNextProTT-Bold.ttf`,
+              url: `${baseUrl}/static/font/pro_ttf/BMWTypeNextProTT-Bold.ttf`,
               format: "truetype",
             }}
             fontStyle="bold"
           />
         </Head>
-        <Preview>{}</Preview>
         <Body className="bg-white my-auto mx-auto font-[BMWTypeNextProTT-Regular]">
           <Container className="border border-solid border-[#eaeaea] rounded my-[40px] mx-auto w-[465px] md:w-[700px] flex flex-col items-stretch">
             <Section className="w-full">
               <Img
                 className="w-full object-cover object-center"
-                src={`${baseUrl}/static/bmw-i7-protection.jpg`}
+                src={`${baseUrl}/static/img/bmw-i7-protection.jpg`}
                 alt="BMW i7 Protection"
               />
             </Section>
@@ -116,19 +152,41 @@ export const BMWInviteUserEmail = ({
                 </Link>
               </Text>
             </Container>
-            <Section className="pb-9 pt-16 md:px-12 px-9 bg-[#e6e6e6]">
-              <Row className="w-full font-[BMWTypeNextProTT-Bold] mb-14 flex justify-around">
+            <Container className="pb-9 pt-16 md:px-12 px-9 bg-[#e6e6e6] w-full">
+              <Text className="flex items-center mt-0 mb-14 flex-wrap justify-around">
                 {footerLinks?.map(({ name, href }, index) => (
-                  <Column key={index} className="w-1/3 text-center">
-                    <Link href={href} className="text-black no-underline">
-                      <span className="mr-2">›</span>
-                      <span>{name}</span>
-                    </Link>
-                  </Column>
+                  <Link
+                    key={index}
+                    href={href}
+                    className="text-black no-underline w-fit font-[BMWTypeNextProTT-Bold] inline-flex items-center md:justify-center justify-start"
+                  >
+                    <Img
+                      className="object-cover object-center h-6 mr-2"
+                      src={`${baseUrl}/static/icon/cta-arrow-black.png`}
+                      alt="CTA Arrow"
+                    />
+                    <span className="w-max">{name}</span>
+                  </Link>
                 ))}
+              </Text>
+              <Row className="flex flex-col items-start md:center">
+                <Text className="uppercase md:full md:text-center mt-0 mb-[30px] font-[BMWTypeNextProTT-Light]">
+                  Follow us
+                </Text>
+                <Text className="mt-0 mb-[52px] justify-center flex items-center">
+                  {socialMediaLinks?.map(({ name, src, href }, index) => (
+                    <Link href={href} key={index} className="mr-2">
+                      <Img
+                        src={src}
+                        alt={`${name} icon`}
+                        className="object-cover object-center h-6"
+                      />
+                    </Link>
+                  ))}
+                </Text>
               </Row>
-              <Container>
-                <Text className="mb-14 text-xs">
+              <Row>
+                <Text className="mb-14 mt-0 text-xs">
                   Duis mollis, est non commodo luctus, nisi erat porttitor
                   ligula, eget lacinia odio sem nec elit. Duis mollis, est non
                   commodo luctus, nisi erat porttitor ligula, eget lacinia odio
@@ -143,8 +201,8 @@ export const BMWInviteUserEmail = ({
                   justo odio, dapibus ac facilisis in, egestas eget quam. <br />{" "}
                 </Text>
                 <Text className="text-xs text-center">© BMW AG 2021</Text>
-              </Container>
-            </Section>
+              </Row>
+            </Container>
           </Container>
         </Body>
       </Html>
