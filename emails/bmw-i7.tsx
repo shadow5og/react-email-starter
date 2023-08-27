@@ -49,27 +49,27 @@ const defaulltFooterLinks: BMWUserEmailProps["footerLinks"] = [
     {
       name: "Youtube",
       href: "https://www.youtube.com/user/BMWSouthAfrica",
-      src: `${baseUrl}/static/icon/social-yt-light.png`,
+      src: "https://cloud.appwrite.io/v1/storage/buckets/64ea897682fcadc709da/files/64ea8bde822e9d880794/view?project=567&mode=admin",
     },
     {
       name: "Twitter",
       href: "https://twitter.com/BMW_SA",
-      src: `${baseUrl}/static/icon/social-twitter-light.png`,
+      src: "https://cloud.appwrite.io/v1/storage/buckets/64ea897682fcadc709da/files/64ea8bcb9f419d67b597/view?project=567&mode=admin",
     },
     {
       name: "Facebook",
       href: "https://www.facebook.com/BMWSA",
-      src: `${baseUrl}/static/icon/social-facebook-light.png`,
+      src: "https://cloud.appwrite.io/v1/storage/buckets/64ea897682fcadc709da/files/64ea8bb930e2a131fa48/view?project=567&mode=admin",
     },
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/company/bmwsouthafrica",
-      src: `${baseUrl}/static/icon/social-linkedin-light.png`,
+      src: "https://cloud.appwrite.io/v1/storage/buckets/64ea897682fcadc709da/files/64ea8bc6b49640931d98/view?project=567&mode=admin",
     },
     {
       name: "Instagram",
       href: "https://www.instagram.com/bmwsouthafrica/",
-      src: `${baseUrl}/static/icon/social-instagram-light.png`,
+      src: "https://cloud.appwrite.io/v1/storage/buckets/64ea897682fcadc709da/files/64ea8bbed8146d9df92a/view?project=567&mode=admin",
     },
   ],
   defaultCTA: BMWUserEmailProps["CTA"] = {
@@ -91,7 +91,7 @@ export const BMWInviteUserEmail = ({
             fontFamily="BMWTypeNextProTT-Regular"
             fallbackFontFamily="Arial"
             webFont={{
-              url: `${baseUrl}/static/font/pro_ttf/BMWTypeNextProTT-Regular.ttf`,
+              url: "https://cloud.appwrite.io/v1/storage/buckets/64ea8a9a6728b31b53e4/files/64ea8b089f3ed85ef002/view?project=567&mode=admin",
               format: "truetype",
             }}
             fontStyle="normal"
@@ -100,7 +100,7 @@ export const BMWInviteUserEmail = ({
             fontFamily="BMWTypeNextProTT-Light"
             fallbackFontFamily="Arial"
             webFont={{
-              url: `${baseUrl}/static/font/pro_ttf/BMWTypeNextProTT-Light.ttf`,
+              url: "https://cloud.appwrite.io/v1/storage/buckets/64ea8a9a6728b31b53e4/files/64ea8adeac52b7755bce/view?project=567&mode=admin",
               format: "truetype",
             }}
             fontStyle="light"
@@ -109,7 +109,7 @@ export const BMWInviteUserEmail = ({
             fontFamily="BMWTypeNextProTT-Bold"
             fallbackFontFamily="Arial"
             webFont={{
-              url: `${baseUrl}/static/font/pro_ttf/BMWTypeNextProTT-Bold.ttf`,
+              url: "https://cloud.appwrite.io/v1/storage/buckets/64ea8a9a6728b31b53e4/files/64ea8acd466896855342/view?project=567&mode=admin",
               format: "truetype",
             }}
             fontStyle="bold"
@@ -120,7 +120,7 @@ export const BMWInviteUserEmail = ({
             <Section className="w-full">
               <Img
                 className="w-full object-cover object-center"
-                src={`${baseUrl}/static/img/BMW_i7_Protection.png`}
+                src="https://cloud.appwrite.io/v1/storage/buckets/64ea897682fcadc709da/files/64ea8a683462a9392812/view?project=567&mode=admin"
                 alt="BMW i7 Protection"
               />
             </Section>
@@ -164,7 +164,7 @@ export const BMWInviteUserEmail = ({
                   >
                     <Img
                       className="object-cover object-center h-6 mr-2"
-                      src={`${baseUrl}/static/icon/cta-arrow-black.png`}
+                      src="https://cloud.appwrite.io/v1/storage/buckets/64ea897682fcadc709da/files/64ea8bb3c19598a721da/view?project=567&mode=admin"
                       alt="CTA Arrow"
                     />
                     <span className="w-max">{name}</span>
