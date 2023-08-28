@@ -115,7 +115,7 @@ export const BMWInviteUserEmail = ({
             fontStyle="bold"
           />
         </Head>
-        <Body className="bg-white my-auto mx-auto font-[BMWTypeNextProTT-Regular]">
+        <Body className="bg-white my-auto mx-auto font-[BMWTypeNextProTT-Light] text-[#262626]">
           <Container className="border border-solid border-[#eaeaea] max-w-full rounded my-[40px] mx-auto w-full md:w-[700px] flex flex-col items-stretch">
             <Section className="w-full">
               <Img
@@ -125,7 +125,7 @@ export const BMWInviteUserEmail = ({
               />
             </Section>
             <Container className="pt-[73px] md:px-12 px-9 w-full pb-[79px] max-w-full">
-              <Heading className="text-[#262626] text-3xl font-thin font-[BMWTypeNextProTT-Light] mt-0 p-0 mb-[30px] mx-0">
+              <Heading className="text-3xl font-thin font-[BMWTypeNextProTT-Light] mt-0 p-0 mb-[30px] mx-0">
                 {heading}
               </Heading>
 
@@ -133,7 +133,7 @@ export const BMWInviteUserEmail = ({
                 Dear MR Smith,
               </Text>
 
-              <Text className="text-[#262626] text-[14px] text-base leading-[24px]">
+              <Text className="text-[14px] text-base leading-[24px]">
                 Unleash Elegance and Security with the BMW i7 Protection – Yours
                 for the Taking at R 1,000,000. Elevate Your Drive with Unrivaled
                 Luxury and Cutting-Edge Safety. Click through to Discover the
@@ -147,7 +147,7 @@ export const BMWInviteUserEmail = ({
                   {CTA.name}
                 </Button>
               </Section>
-              <Text className="text-[#262626] text-base leading-[24px]">
+              <Text className="text-base leading-[24px]">
                 Or copy and paste this URL into your browser:{" "}
                 <Link href={CTA.href} className="text-[#1c69d4] no-underline">
                   {CTA.href}
@@ -160,7 +160,7 @@ export const BMWInviteUserEmail = ({
                   <Link
                     key={index}
                     href={href}
-                    className="text-[#262626] no-underline md:w-fit w-full font-[BMWTypeNextProTT-Bold] inline-flex items-center md:justify-center"
+                    className="no-underline text-[#262626] md:w-fit w-full font-[BMWTypeNextProTT-Bold] inline-flex items-center md:justify-center"
                   >
                     <Img
                       className="object-cover object-center h-6 mr-2"
@@ -172,7 +172,7 @@ export const BMWInviteUserEmail = ({
                 ))}
               </Text>
               <Row className="flex flex-col items-start md:center">
-                <Text className="uppercase text-[#262626] text-base md:full md:text-center mt-0 mb-[30px] font-[BMWTypeNextProTT-Light]">
+                <Text className="uppercase text-base md:full md:text-center mt-0 mb-[30px] font-[BMWTypeNextProTT-Light]">
                   Follow us
                 </Text>
                 <Text className="mt-0 mb-[52px] md:justify-center flex items-center">
